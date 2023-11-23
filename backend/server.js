@@ -22,12 +22,12 @@ require("./passport-config")(
   UserUtil.findUserById
 );
 app.listen(5000);
-app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(cookieParser("secret"));
 app.use(flash());
 app.use(
   session({
     name: "token",
-    secret: process.env.SESSION_SECRET,
+    secret: "secret",
     resave: false,
     saveUninitialized: false,
   })
